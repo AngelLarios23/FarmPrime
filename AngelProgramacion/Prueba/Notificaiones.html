@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificaciones HTML</title>
+</head>
+<body>
+    <button onclick="mostrarNotificacion()">Mostrar Notificación</button>
+
+    <script>
+        function mostrarNotificacion() {
+            // Verificamos si el navegador soporta las notificaciones
+            if (!("Notification" in window)) {
+                alert("Este navegador no soporta notificaciones");
+            } else if (Notification.permission === "granted") { // Si el permiso está concedido
+                // Creamos la notificación
+                var notification = new Notification("¡Hola mundo!");
+            } else if (Notification.permission !== "denied") { // Si el permiso no está denegado, solicitamos permiso
+                Notification.requestPermission().then(function (permission) {
+                    // Si el permiso es concedido, creamos la notificación
+                    if (permission === "granted") {
+                        var notification = new Notification("¡Hola mundo!");
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

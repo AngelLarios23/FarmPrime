@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadatos -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Enlace a la hoja de estilos CSS de boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Enlace a la hoja de estilos CSS personalizada -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Título de la página -->
+    <title>|AngelLarios</title>
+</head>
+<body>
+    <!-- Contenedor principal -->
+    <div class="wrapper">
+        <!-- Barra de navegación -->
+        <nav class="nav">
+            <!-- Logo de la aplicación -->
+            <div class="nav-logo">
+                <p>FarmPrime</p> 
+            </div>
+            
+            <!-- Menú de navegación -->
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <!-- Ítems de menú -->
+                    <li><a href="#" class="link active"></a></li>
+                    <li><a href="#" class="link"></a></li>
+                    <li><a href="#" class="link"></a></li>
+                    <li><a href="#" class="link"></a></li>
+                </ul>
+            </div>
+            
+            <!-- Botones de inicio de sesión y registro -->
+            <div class="nav-button">
+                <button class="btn white-btn" id="loginBtn" onclick="login()">Inicia sesion</button>
+                <button class="btn" id="registerBtn" onclick="register()">Registrar</button>
+            </div>
+            
+            <!-- Botón de menú para dispositivos móviles -->
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <!-- Contenedor de formularios -->
+        <div class="form-box">
+            <!-- Contenedor del formulario de inicio de sesión -->
+            <div class="login-container" id="login">
+                <!-- Encabezado y enlace al formulario de registro -->
+                <div class="top">
+                    <span>¿No estás asociado a nosotros? <a href="#" onclick="register()">Registrate</a></span>
+                    <header>Bienvenido</header>
+                </div>
+                <!-- Campos de entrada de datos -->
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Escribe tu Email">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" placeholder="Escribe tu contraseña">
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <!-- Botón de inicio de sesión -->
+                <div class="input-box1">
+                    <a href="http://127.0.0.1:5500/FarmPrime/Inicio/index.html">
+                        <input type="submit" class="submit" value="Iniciar sesión">
+                    </a>
+                </div>
+                <!-- Opciones adicionales -->
+                <div class="two-col">
+                    <div class="one">
+                        <input type="checkbox" id="login-check">
+                        <label for="login-check">Recordarme</label>
+                    </div>
+                    
+                    <div class="two">
+                        <label><a href="http://127.0.0.1:5500/AngelProgramacion/Terminos_Y_Condiciones/TYC.html">Terminos y condiciones</a></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenedor del formulario de registro -->
+            <div class="register-container" id="register">
+                <!-- Encabezado y enlace al formulario de inicio de sesión -->
+                <div class="top">
+                    <span>¿Ya tienes una cuenta creada? <a href="#" onclick="login()">Iniciar sesión</a></span>
+                    <header>Regístrate</header>
+                </div>
+                <!-- Campos de entrada de datos -->
+                <div class="two-forms">
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Nombre">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Apellido">
+                        <i class="bx bx-user"></i>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Email">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" placeholder="Contraseña">
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <!-- Botón de registro -->
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Registrarse">
+                </div>
+                <!-- Opciones adicionales -->
+                <div class="two-col">
+                    <div class="one">
+                        <input type="checkbox" id="register-check">
+                        <label for="register-check"> Recordarme</label>
+                    </div>
+                    <div class="two">
+                        <label><a href="http://127.0.0.1:5500/AngelProgramacion/Terminos_Y_Condiciones/TYC.html">Terminos y condiciones</a></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para la funcionalidad del menú -->
+    <script>
+        function myMenuFunction() {
+            var i = document.getElementById("navMenu");
+            if (i.className === "nav-menu") {
+                i.className += " responsive";
+            } else {
+                i.className = "nav-menu";
+            }
+        }
+    </script>
+
+    <!-- Script para la funcionalidad de cambio entre formularios -->
+    <script>
+        var a = document.getElementById("loginBtn");
+        var b = document.getElementById("registerBtn");
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+
+        function login() {
+            x.style.left = "4px";
+            y.style.right = "-520px";
+            a.className += " white-btn";
+            b.className = "btn";
+            x.style.opacity = 1;
+            y.style.opacity = 0;
+        }
+
+        function register() {
+            x.style.left = "-510px";
+            y.style.right = "5px";
+            a.className = "btn";
+            b.className += " white-btn";
+            x.style.opacity = 0;
+            y.style.opacity = 1;
+        }
+    </script>
+</body>
+</html>
